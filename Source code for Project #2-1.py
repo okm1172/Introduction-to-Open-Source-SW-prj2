@@ -10,11 +10,23 @@ data_df = pd.read_csv('2019_kbo_for_kaggle_v2.csv')
 
 #1
 value=['H','avg','HR','OBP']
-aa=(data_df['year'] >= 2015) & (data_df['year'] <= 2018)
-real_data=data_df[aa]
+aa=data_df['year'] == 2015
+real_data2015=data_df[aa]
+aa=data_df['year'] == 2016
+real_data2016=data_df[aa]
+aa=data_df['year'] == 2017
+real_data2017=data_df[aa]
+aa=data_df['year'] == 2018
+real_data2018=data_df[aa]
 for value_name in value:
-    print(value_name + " : ")
-    print(real_data.sort_values(by=value_name).iloc[:11]['batter_name'])
+    print(value_name + " - 2015 : ")
+    print(real_data2015.sort_values(by=value_name).iloc[:11]['batter_name'])
+    print(value_name + " - 2016 : ")
+    print(real_data2016.sort_values(by=value_name).iloc[:11]['batter_name'])
+    print(value_name + " - 2017 : ")
+    print(real_data2017.sort_values(by=value_name).iloc[:11]['batter_name'])
+    print(value_name + " - 2018 : ")
+    print(real_data2018.sort_values(by=value_name).iloc[:11]['batter_name'])
 
 #2
 abc=data_df[data_df['year']==2018]
